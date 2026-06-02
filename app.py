@@ -52,7 +52,7 @@ st.markdown("""
 def build_web_knowledge_base():
     # এখানে আপনার ওয়েবসাইটের যে যে পেজ থেকে বট তথ্য নিবে, সেই লিংকগুলো বসিয়ে দিন
     urls = [
-        "https://tashus.com.au",
+        
         "https://dev-testing.tashus.com.au/legals/privacy",
         "https://dev-testing.tashus.com.au/legals/terms-and-conditions",
         "https://dev-testing.tashus.com.au/legals/privacy",
