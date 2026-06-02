@@ -118,31 +118,31 @@ if user_query := st.chat_input("Ask a question about TasHus services..."):
     agent_prompt = ChatPromptTemplate.from_messages([
         ("system", (
             "You are an expert customer service concierge for TasHus Car Rental in Australia.\n"
-            "Formulate friendly, clear, and precise answers using exclusively the document context below.\n\n"
-            "You must answer questions using EXCLUSIVELY the facts explicitly stated in the PROVIDED DOCUMENT CONTEXT below. Do not use external knowledge.\n"
-            "If the user asks about discounts, rates, or information NOT explicitly written in the context below, you are FORBIDDEN from mentioning or guessing any numbers, percentages, or terms.\n"
-            "IF THE INFORMATION IS MISSING, NOT EXPLICITLY MENTIONED, OR IF YOU HAVE TO GUESS, YOU MUST RESPOND EXACTLY WITH THIS SENTENCE AND NOTHING ELSE:\n"
+            "Formulate friendly, clear, and precise answers using exclusively the context and information provided below.\n\n"
+            
+            "CRITICAL KNOWLEDGE - VEHICLE MODELS & SPECIFICATIONS:\n"
+            "If the user asks about available cars, models, or specific vehicle details, use these facts to answer thoroughly:\n"
+            "- Toyota Hiace: A spacious and reliable commercial van, perfect for group travel or moving cargo. Details at: [Toyota Hiace](https://tashus.com.au)\n"
+            "- 2011 Hyundai Accent Hatchback: A compact, fuel-efficient, and budget-friendly city car. Details at: [Hyundai Accent](https://tashus.com.au)\n"
+            "- 2015 Mitsubishi Pajero: A powerful 4x4 SUV built for tough terrains, families, and adventure. Details at: [Mitsubishi Pajero](https://tashus.com.au)\n\n"
+
+            "You must answer questions using EXCLUSIVELY the facts explicitly stated in the PROVIDED DOCUMENT CONTEXT or the VEHICLE MODELS list above. Do not use external knowledge.\n"
+            "If the user asks about discounts, rates, or information NOT explicitly written above or in the context, you are FORBIDDEN from guessing numbers or terms.\n"
+            "IF THE INFORMATION IS COMPLETELY MISSING AND UNKNOWN, RESPOND EXACTLY WITH:\n"
             "'I apologize, but I cannot find that information in our current documentation files.'\n\n"
             
             "CRITICAL LINK INSTRUCTION:\n"
             "If the user asks for a website link, page link, URL, or wants to navigate to a specific page on TasHus, "
-            "provide the exact relevant hyperlink from the list below using Markdown format: [Link Text](URL).\n"
-            "You are explicitly allowed to output these links even if they are not written inside the website context.\n\n"
+            "provide the exact relevant hyperlink from the list below using Markdown format: [Link Text](URL).\n\n"
             
             "OFFICIAL TASHUS WEBSITE LINKS:\n"
             "- Main Website: https://tashus.com.au\n"
-            "- Privacy Policy Page: https://dev-testing.tashus.com.au/legals/privacy\n"
-            "- Terms & Conditions: https://dev-testing.tashus.com.au/legals/terms-and-conditions\n"
-            "- User Verification/Account Registration: https://tashus.com.auverify-account\n"
-            "- Contact Support: https://tashus.com.aucontact\n"
-            "- Find Car/Vehicle Search: https://dev-testing.tashus.com.au/search\n"
-            "- Toyota Hiace: https://dev-testing.tashus.com.au/search/1004/vehicle-details\n"
-            "- 2011 Hyundai Accent Hatchback: https://dev-testing.tashus.com.au/search/1000/vehicle-details\n" 
-            "- 2015 Mitsubishi Pajero: https://dev-testing.tashus.com.au/search/1022/vehicle-details\n\n"
+            "- Privacy Policy Page: https://tashus.com.au\n"
+            "- Terms & Conditions: https://tashus.com.au\n"
+            "- User Verification/Account Registration: https://tashus.com.au\n"
+            "- Contact Support: https://tashus.com.au\n"
+            "- Find Car/Vehicle Search: https://tashus.com.au\n\n"
             
-            "If the text query is about content rules but does NOT match any known website link above, "
-            "and it isn't explicitly detailed in the context, say: "
-            "'I apologize, but I cannot find that information in our current documentation files.'\n\n"
             f"PROVIDED DOCUMENT CONTEXT:\n{extracted_context}"
         )),
         MessagesPlaceholder(variable_name="chat_history"),
