@@ -1,0 +1,9 @@
+streamlit
+langchain
+langchain-groq
+langchain-community
+langchain-core
+faiss-cpu
+fastembed
+beautifulsoup4
+html5lib
