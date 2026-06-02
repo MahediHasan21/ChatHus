@@ -55,12 +55,9 @@ def build_web_knowledge_base():
         
         "https://dev-testing.tashus.com.au/legals/privacy",
         "https://dev-testing.tashus.com.au/legals/terms-and-conditions",
-        "https://dev-testing.tashus.com.au/legals/privacy",
-       "https://tashus.com.auverify-account",
-        "https://tashus.com.aucontact",
         "https://dev-testing.tashus.com.au/search",
         "https://dev-testing.tashus.com.au/search/1004/vehicle-details",
-        " https://dev-testing.tashus.com.au/search/1000/vehicle-details" ,
+        "https://dev-testing.tashus.com.au/search/1000/vehicle-details",
         "https://dev-testing.tashus.com.au/search/1022/vehicle-details"
     ]
     
